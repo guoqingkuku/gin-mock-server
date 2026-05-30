@@ -20,7 +20,7 @@ func LoginHandler(c *gin.Context) {
 		Captcha  string `json:"captcha" binding:"omitempty"` // 可选字段，登录时可能需要验证码
 	}
 	if err := c.ShouldBindJSON(&req); err != nil {
-		c.JSON(http.StatusBadRequest, models.APIResult{
+		c.JSON(http.StatusOK, models.APIResult{
 			Code: 400,
 			Msg:  "参数校验失败: " + err.Error(),
 			Data: nil,
